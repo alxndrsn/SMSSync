@@ -234,18 +234,12 @@ public abstract class BaseHttpClient {
     }
 
     public enum HttpMethod {
-        POST("POST"),
-        GET("GET"),
-        PUT("PUT");
-
-        private final String mMethod;
-
-        HttpMethod(String method) {
-            mMethod = method;
-        }
+        POST,
+        GET,
+        PUT;
 
         public String value() {
-            return mMethod;
+            return toString();
         }
     }
 
