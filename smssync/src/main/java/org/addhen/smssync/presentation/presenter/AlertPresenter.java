@@ -91,8 +91,8 @@ public class AlertPresenter {
                 } catch (Exception e) {
                     mFileManager.append(e.getMessage());
                 } finally {
-                    if ((mAppHttpClient.getResponse()) != null && (200 == mAppHttpClient
-                            .getResponse().code())) {
+                    if (mAppHttpClient.getResponse() != null &&
+                            mAppHttpClient.getResponse().isSuccessful()) {
                         mFileManager.append(
                                 mContext.getResources()
                                         .getString(R.string.successful_alert_to_server));

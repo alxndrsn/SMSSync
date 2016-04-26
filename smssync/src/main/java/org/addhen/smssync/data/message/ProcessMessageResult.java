@@ -143,7 +143,7 @@ public class ProcessMessageResult {
         } catch (Exception e) {
             mFileManager.append(mContext.getString(R.string.message_processed_failed));
         } finally {
-            if (200 == mAppHttpClient.getResponse().code()) {
+            if (mAppHttpClient.getResponse().isSuccessful()) {
                 mFileManager.append(mContext.getString(R.string.message_processed_success));
             }
         }
@@ -177,7 +177,7 @@ public class ProcessMessageResult {
                         mContext.getString(R.string.message_processed_failed) + " " + e
                                 .getMessage());
             } finally {
-                if (200 == mAppHttpClient.getResponse().code()) {
+                if (mAppHttpClient.getResponse().isSuccessful()) {
 
                     mFileManager.append(
                             mContext.getString(R.string.message_processed_success));
@@ -234,7 +234,7 @@ public class ProcessMessageResult {
             mFileManager.append(
                     mContext.getString(R.string.message_processed_failed) + " " + e.getMessage());
         } finally {
-            if (200 == mAppHttpClient.getResponse().code()) {
+            if (mAppHttpClient.getResponse().isSuccessful()) {
                 response = parseMessagesUUIDSResponse(mAppHttpClient);
                 response.setSuccess(true);
             } else {

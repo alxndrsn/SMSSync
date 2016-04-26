@@ -76,8 +76,7 @@ public class AppHttpClient extends BaseHttpClient {
         }
         Response response = getResponse();
         if (response != null) {
-            int statusCode = response.code();
-            if (statusCode == 200) {
+            if (response.isSuccessful()) {
                 final Gson gson = new Gson();
                 SmssyncResponse smssyncResponses = null;
                 try {

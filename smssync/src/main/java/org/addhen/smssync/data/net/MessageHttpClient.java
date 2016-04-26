@@ -81,7 +81,7 @@ public class MessageHttpClient extends BaseHttpClient {
             execute();
             Response response = getResponse();
             int statusCode = response.code();
-            if (statusCode != 200 && statusCode != 201) {
+            if (response.isSuccessful()) {
                 setServerError("bad http return code", statusCode);
                 return false;
             }
